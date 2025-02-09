@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/TheodosiouTh/test-ci-cd/compare/v1.0.0...v1.0.1) (2025-02-09)
+
+
+### Bug Fixes
+
+* Updating package.json version fails ([03d2c2f](https://github.com/TheodosiouTh/test-ci-cd/commit/03d2c2fb24e7a84b941f1e3139ae3b07fa3c1f8c))
+
 # 1.0.0 (2025-02-09)
 
 

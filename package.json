@@ -1,6 +1,6 @@
 {
   "name": "test-ci-cd",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "main": "index.js",
   "repository": "git@github.com:TheodosiouTh/test-ci-cd.git",
   "author": "Thanos THeodosiou <thanosthd@gmail.com>",
