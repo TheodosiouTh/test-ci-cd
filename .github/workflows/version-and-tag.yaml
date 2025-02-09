@@ -1,11 +1,11 @@
-name: Sync
+name: Version and Tag
 on:
   push:
     branches:
       - master
 
 jobs:
-  sync:
+  version-and-tag:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
