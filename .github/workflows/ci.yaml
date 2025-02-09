@@ -2,16 +2,8 @@ name: CI
 on:
   workflow_dispatch:
     inputs:
-      source:
-        description: 'Branch we want to sync'
-        required: true
-        default: 'master'
-        options:
-          - 'master'
-          - 'staging'
-          - 'develop'
       target:
-        description: 'Branch we want to sync to'
+        description: 'Branch we want to sync'
         required: true
         default: 'staging'
         options:
@@ -26,8 +18,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run a multi-line script
         run: |
-          git checkout ${{ github.event.inputs.source }};
+          git checkout ${{ github.ref_name }};
           git pull;
           git checkout ${{ github.event.inputs.target }};
           git pull;
-          git rebase ${{ github.event.inputs.source }};gi
+          git rebase ${{ github.ref_name }};
