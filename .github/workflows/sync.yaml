@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
     inputs:
       target:
+        type: choice
         description: 'Branch we want to sync'
         required: true
-        default: 'staging'
         options:
           - 'master'
           - 'staging'
