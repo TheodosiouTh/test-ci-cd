@@ -16,10 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run a multi-line script
+      - name: Sync branch
         run: |
           git checkout ${{ github.ref_name }};
           git pull;
           git checkout ${{ github.event.inputs.target }};
           git pull;
           git rebase ${{ github.ref_name }};
+          git push;
