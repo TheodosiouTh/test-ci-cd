@@ -1,0 +1,33 @@
+name: CI
+on:
+  workflow_dispatch:
+    branch:
+      source:
+        description: 'Branch we want to sync'
+        required: true
+        default: 'master'
+        options:
+          - 'master'
+          - 'staging'
+          - 'develop'
+      target:
+        description: 'Branch we want to sync to'
+        required: true
+        default: 'staging'
+        options:
+          - 'master'
+          - 'staging'
+          - 'develop'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a multi-line script
+        run: |
+          git checkout ${{ github.event.inputs.source }};
+          git pull;
+          git checkout ${{ github.event.inputs.target }};
+          git pull;
+          git rebase ${{ github.event.inputs.source }};gi
