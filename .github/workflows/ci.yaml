@@ -16,6 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+      - name: Setup git
+        run: |
+          git config user.name ${{ secrets.BOT_ACCESS_NAME }} 
+          git config user.email ${{ secrets.BOT_ACCESS_EMAIL }} 
       - name: Sync branch
         run: |
           git checkout ${{ github.ref_name }};
