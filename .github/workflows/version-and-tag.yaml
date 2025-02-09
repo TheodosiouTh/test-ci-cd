@@ -22,3 +22,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
         run: npx semantic-release
+      - name: Sync Branches
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+        run: | 
+          git pull;
+          git checkout staging;
+          git pull;
+          git rebase master;
+          git push --force
+          git checkout develop;
+          git pull;
+          git rebase staging;
+          git push --force
