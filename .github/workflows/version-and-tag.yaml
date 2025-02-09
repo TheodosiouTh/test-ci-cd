@@ -1,0 +1,24 @@
+name: Sync
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+      - name: Setup git
+        run: |
+          git config user.name ${{ secrets.BOT_ACCESS_NAME }} 
+          git config user.email ${{ secrets.BOT_ACCESS_EMAIL }} 
+      - name: Install dependencies
+        run: yarn
+      - name: Run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
+        run: npx semantic-release
